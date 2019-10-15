@@ -1,0 +1,51 @@
+8,8,Image Type,,T
+8,20,Study date,,F
+8,30,Study time,,F
+8,50,Accession Number,,F
+8,60,Modality,,T
+8,70,Manufacturer,,T
+8,90,Referring Physician's Name,,F
+8,103e,SeriesDescription,,T
+10,10,Patient's name, ,T
+10,20,Patient ID, ,F
+10,30,Patient's birth date,,F
+10,40,Patient's sex, ,F
+10,1010,Patients age,,F
+18,10,Contrast Agent,,T
+18,50,Slice Thickness,,T
+18,1151,X-ray Tube Current,,T
+18,1210,Convolution Kernal,,T
+20,10,Study ID,,F
+20,11,Series number, ,F
+20,12,Acquisition Number,,T
+20,13,Instance Number,,T
+20,32,Image Position,,T
+20,37,Image Orientation Patient,,T
+20,52,Frame of Reference UID,,T
+20,1040,Position Reference Indicator,,T
+20,1041,Slice Location,,T
+20,000D,Study UID,0,F
+20,000E,Series Instance UID,0,F
+20,11,Series Number,0,T
+20,12,Acquisition Number,0,T
+27,34,Pixel Aspect Ratio,,T
+28,2,Samples per Pixel,,T
+28,4,Photometric Interpretation,,T
+28,6,Planar Configuration,,T
+28,10,Rows,,T
+28,11,Columns,,T
+28,30,Pixel Spacing,,T
+28,60,KVP,,T
+28,100,Bits Allocated,,T
+28,101,Bits Stored,,T
+28,102,High Bit,,T
+28,103,Pixel Representation,,T
+28,120,Pixel Padding Value,,T
+28,121,Pixel Padding Range Limit,,T
+28,1050,Window Center,,T
+28,1051,Window Width,,T
+28,1052,Rescale Intercept,,T
+28,1053,Rescale Slope,,T
+28,1054,Rescale Type,,T
+28,7FE0,Pixel Data Provider URL,,T
+7FE0,10,Pixel Data,,T

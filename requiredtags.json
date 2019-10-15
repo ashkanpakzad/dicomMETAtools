@@ -1,0 +1,359 @@
+[
+  {
+    "tag1": "0008",
+    "tag2": "0020",
+    "fieldname": "Study date",
+    "value": "",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0008",
+    "tag2": "0030",
+    "fieldname": "Study time",
+    "value": "",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0008",
+    "tag2": "0050",
+    "fieldname": "Accession Number",
+    "value": "",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0008",
+    "tag2": "0090",
+    "fieldname": "Referring Physician's Name",
+    "value": "",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0010",
+    "tag2": "0010",
+    "fieldname": "Patient's name",
+    "value": " ",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0010",
+    "tag2": "0020",
+    "fieldname": "Patient ID",
+    "value": " ",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0010",
+    "tag2": "0030",
+    "fieldname": "Patient's birth date",
+    "value": "",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0010",
+    "tag2": "0040",
+    "fieldname": "Patient's sex",
+    "value": " ",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "0010",
+    "fieldname": "Study ID",
+    "value": "",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "0011",
+    "fieldname": "Series number",
+    "value": " ",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "0013",
+    "fieldname": "Instance Number",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "000D",
+    "fieldname": "Study UID",
+    "value": "0",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "000E",
+    "fieldname": "Series UID",
+    "value": "0",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0010",
+    "tag2": "0032",
+    "fieldname": "Patients birth time",
+    "value": "",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0010",
+    "tag2": "1010",
+    "fieldname": "Patients age",
+    "value": "",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0008",
+    "tag2": "0060",
+    "fieldname": "Modality",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "000E",
+    "fieldname": "Series Instance UID",
+    "value": "0",
+    "copy original": "F"
+  },
+  {
+    "tag1": "0008",
+    "tag2": "0070",
+    "fieldname": "Manufacturer",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "0052",
+    "fieldname": "Frame of Reference UID",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "1040",
+    "fieldname": "Position Reference Indicator",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0120",
+    "fieldname": "Pixel Padding Value",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0030",
+    "fieldname": "Pixel Spacing",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "0037",
+    "fieldname": "Image Orientation Patient",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "0032",
+    "fieldname": "Image Position",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0018",
+    "tag2": "0050",
+    "fieldname": "Slice Thickness",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "1041",
+    "fieldname": "Slice Location",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0002",
+    "fieldname": "Samples per Pixel",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0004",
+    "fieldname": "Photometric Interpretation",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0010",
+    "fieldname": "Rows",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0011",
+    "fieldname": "Columns",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0100",
+    "fieldname": "Bits Allocated",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0101",
+    "fieldname": "Bits Stored",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0102",
+    "fieldname": "High Bit",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0103",
+    "fieldname": "Pixel Representation",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0006",
+    "fieldname": "Planar Configuration",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0027",
+    "tag2": "0034",
+    "fieldname": "Pixel Aspect Ratio",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "7FE0",
+    "tag2": "0010",
+    "fieldname": "Pixel Data",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "7FE0",
+    "fieldname": "Pixel Data Provider URL",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0121",
+    "fieldname": "Pixel Padding Range Limit",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0018",
+    "tag2": "0010",
+    "fieldname": "Contrast Agent",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0008",
+    "tag2": "0008",
+    "fieldname": "Image Type",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "1052",
+    "fieldname": "Rescale Intercept",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "1053",
+    "fieldname": "Rescale Slope",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "1054",
+    "fieldname": "Rescale Type",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "0060",
+    "fieldname": "KVP",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0020",
+    "tag2": "0012",
+    "fieldname": "Acquisition Number",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0018",
+    "tag2": "1210",
+    "fieldname": "Convolution Kernal",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0018",
+    "tag2": "1151",
+    "fieldname": "X-ray Tube Current",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "1050",
+    "fieldname": "Window Center",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0028",
+    "tag2": "1051",
+    "fieldname": "Window Width",
+    "value": "",
+    "copy original": "T"
+  },
+  {
+    "tag1": "0008",
+    "tag2": "103e",
+    "fieldname": "SeriesDescription",
+    "value": "",
+    "copy original": "T"
+  }
+]
