@@ -1,8 +1,6 @@
 # CT image anonymisation and rename all series belonging to single patient into folders
 # By Ashkan Pakzad (ashkan.pakzad.13 at ucl.ac.uk)
 
-# Partially based on writing DICOM file from scratch by Guillaume Lemaitre <g.lemaitre58@gmail.com> with associated
-# license : MIT
 
 # Folder Structure:
 # Series1
@@ -10,22 +8,19 @@
 
 import os
 import pydicom
-import copy
-import tempfile
+import json
 import datetime
 from pathlib import Path
 from argparse import ArgumentParser
 
 
 def load_json(filename):
-    import json
     with open(filename, "r") as read_file:
         data = json.load(read_file)
     return data
 
 
 def save_json(data, filename):
-    import json
     with open(filename, "w") as write_file:
         json.dump(data, write_file)
 
@@ -49,14 +44,19 @@ if __name__ == "__main__":
         newdir = Path(str(args.Outputfilepath[0]))
 
     # incase dir already exits, force new dir
-    while str(newdir) in os.listdir('.'):
-        newdir = Path(str(newdir) + '_1')
+    #while str(newdir) in os.listdir('..'):
+    z = None
+    while z is None:
+        try:
+            os.mkdir(newdir)
+            z = 1
+        except FileExistsError:
+            newdir = Path(str(newdir) + '_1')
+            pass
 
-    os.mkdir(newdir)
 
 
-    # Create list of files in folder
-    # Create list of files in folder
+# Create list of files in folder
     filenames = []
     for names in os.listdir(filepath):
         if not names.startswith('.'):
@@ -86,72 +86,48 @@ if __name__ == "__main__":
     print('patient name: ' + patientname)
 
     # Create reference json fields for CT fields
-    # Create some temporary filenames
-    suffix = '.dcm'
-    filename_little_endian = tempfile.NamedTemporaryFile(suffix=suffix).name
-    filename_big_endian = tempfile.NamedTemporaryFile(suffix=suffix).name
+    ref_ds_raw = load_json("CT_dcm_ref.json")
+    ref_ds = pydicom.dataset.Dataset()
+    ref_ds = ref_ds.from_json(ref_ds_raw)
 
-    print("Setting file meta information...")
-    # Populate required values for file meta information
-    file_meta = pydicom.dataset.Dataset()
-    file_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.2'
-    file_meta.MediaStorageSOPInstanceUID = "1.2.3"
-    file_meta.ImplementationClassUID = "1.2.3.4"
-
-    print("Setting dataset pydicom.dataset.Dataset()values...")
-    # Create the FileDataset instance (initially no data elements, but file_meta
-    # supplied)
-    ref_ds = pydicom.dataset.FileDataset(filename_little_endian, {},
-                                         file_meta=file_meta, preamble=b"\0" * 128)
-
-    json_ds_raw = load_json("CT_dcm_ref.json")
-    json_ds = pydicom.dataset.Dataset()
-    json_ds.from_json(json_ds_raw)
-
-    # load tags to copy from orig
-    copy_tags_json = load_json("CT_copy.json")
-    copy_tags = copy_tags_json['tags']
+    print(ref_ds)
+    # load tags to maintain in orig
+    change_tags_json = load_json("CT_change.json")
+    change_tags = change_tags_json['tags']
 
     ## for all files
     for dcm in filenames:
 
         # load original dicom file
-        orig_ds = pydicom.filereader.dcmread(str(filepath.joinpath(dcm)))
+        ds = pydicom.filereader.dcmread(str(filepath.joinpath(dcm)))
 
-        # create copy of reference dicom file
-        dup_ds = copy.copy(ref_ds)
+        orig_tags = ds.dir()
+        for tagname in orig_tags:
+            # delete irrelevant tags
+            if tagname not in ref_ds:
+                del ds[tagname]
+            # change sensitive values
+            tag_base = str(pydicom.tag.Tag(tagname))
+            tag_num = tag_base[1:5]+tag_base[7:11]
+            if tag_num in change_tags:
+                ds[tagname] = ref_ds[tagname]
 
-        # copy info
-        missing_tags = []
-        for tag in copy_tags:
-            if tag in orig_ds:
-                dup_ds[tag] = orig_ds[tag]
-            else:
-                missing_tags.append(tag)
 
+        # Save file.
         # file name based on instance number
-        filenumber = dup_ds.data_element('InstanceNumber').value
+        filenumber = ds.data_element('InstanceNumber').value
 
         newfile = 'IM_%04d.dcm' % filenumber
         # save new dicomfile
 
         # Set creation date/time
         dt = datetime.datetime.now()
-        dup_ds.ContentDate = dt.strftime('%Y%m%d')
+        ds.ContentDate = dt.strftime('%Y%m%d')
         timeStr = dt.strftime('%H%M%S.%f')  # long format with micro seconds
-        dup_ds.ContentTime = timeStr
-        dup_ds.is_little_endian = True
-        dup_ds.is_implicit_VR = True
+        ds.ContentTime = timeStr
 
-        print("Writing test file", filename_little_endian)
-        dup_ds.save_as(filename_little_endian)
-        print("File saved.")
-
-        print("Writing test file as Big Endian Explicit VR", filename_big_endian)
-        dup_ds.save_as(filename_big_endian)
-
-        #print('New file: ' + str(newpatient_dir.joinpath(newfile)))
-        #dup_ds.save_as(str(newpatient_dir.joinpath(newfile)))
+        print('New file: ' + str(newpatient_dir.joinpath(newfile)))
+        ds.save_as(str(newpatient_dir.joinpath(newfile)))
 
     print('COMPLETE')
 
