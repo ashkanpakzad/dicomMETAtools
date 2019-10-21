@@ -68,9 +68,9 @@ if __name__ == "__main__":
     age = str(ds.data_element('PatientAge').value)
     sex = str(ds.data_element('PatientSex').value)
     study_date = str(ds.data_element('StudyDate').value)
-
+    patientid = str(ds.data_element('PatientID').value)
     # Create dictionary element
-    new_sensitive_meta = {patientname: {'Patient': patientname, 'Age': age, 'Sex': sex, 'Study Date': study_date}}
+    new_sensitive_meta = {patientname: {'Patient': patientname, 'PatientID': patientid, 'Age': age, 'Sex': sex, 'Study Date': study_date}}
 
     # add patient to sensitive data file
     if args.meta_file == None:
@@ -101,6 +101,9 @@ if __name__ == "__main__":
         # load original dicom file
         ds = pydicom.filereader.dcmread(str(filepath.joinpath(dcm)))
 
+        # remove private tags
+        ds.remove_private_tags()
+        #print(ds)
         orig_tags = ds.dir()
         for tagname in orig_tags:
             # delete irrelevant tags
