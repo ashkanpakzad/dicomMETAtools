@@ -4,3 +4,4 @@ More info: https://medium.com/@quarknotes/reading-editing-dicom-metadata-w-pytho
 
 USE:
 process_dicom_series.py --help
+DicomAnonymiser.py --help
